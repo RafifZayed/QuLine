@@ -1,0 +1,96 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.quline</groupId>
+	<artifactId>quLine</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	<name>QuLine</name>
+
+	<description>
+    <![CDATA[
+
+    ]]>
+  </description>
+	<!-- Modules -->
+	<modules>
+		<module>quLine.web</module>
+		<module>quLine.model</module>
+		<module>quLine.dao</module>
+		<module>quLine.common</module>
+		<module>quLine.business</module>
+		<module>quLine.service</module>
+	</modules>
+	<properties>
+		<log.path>E:/work/QuLine/Log/</log.path>
+		<log.level>DEBUG</log.level>
+		<config.path>E:/work/QuLine/Config/</config.path>
+		<config.file.name>quLineConfig.config</config.file.name>
+		<db.jdbc.driverClassName>oracle.jdbc.OracleDriver</db.jdbc.driverClassName>
+		<db.jdbc.url></db.jdbc.url>
+		<db.jdbc.username></db.jdbc.username>
+		<db.jdbc.password></db.jdbc.password>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- Versioning -->
+		<spring.version>4.3.3.RELEASE</spring.version>
+	</properties>
+
+	<!-- Repositories -->
+	<repositories>
+	</repositories>
+
+	<!-- Global Dependencies -->
+	<dependencies>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.3</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	<!--profiles -->
+	<profiles>
+		<profile>
+			<id>local</id>
+			<properties>
+				<log.level>DEBUG</log.level>
+				<log.path>E:/work/QuLine/Log/</log.path>
+				<config.path>E:/work/QuLine/Config/</config.path>
+				<config.file.name>quLineConfig.config</config.file.name>
+				<db.jdbc.driverClassName>oracle.jdbc.OracleDriver</db.jdbc.driverClassName>
+				<db.jdbc.url></db.jdbc.url>
+				<db.jdbc.username></db.jdbc.username>
+				<db.jdbc.password></db.jdbc.password>
+			</properties>
+		</profile>
+	</profiles>
+	<!-- build -->
+	<build>
+		<finalName>QuLine-Engine</finalName>
+		<resources>
+			<resource>
+				<directory> src/main/resources </directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+
+		</plugins>
+	</build>
+</project>
